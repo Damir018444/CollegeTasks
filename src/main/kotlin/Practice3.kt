@@ -16,37 +16,32 @@ class Practice3 {
                     "10) \"Является ли число a делителем числа b?\"\n" +
                     "11) Рассмотреть натуральное число\n" +
                     "12) Сравнить цифры в двузначном числе\n" +
-                    "13) Работа с цифрами в четырёхзначном числе")
+                    "13) Работа с цифрами в четырёхзначном числе\n" +
+                    "14) Выйти из текущей практики")
 
-            print("\nВаш выбор?: ")
+            print("\nВаш выбор? (например: 1 или 1) ): ")
             val chc = readlnOrNull()
 
-            if (chc.equals("1)") or chc.equals("1")) {
-                task1()
-            } else if (chc.equals("2)") or chc.equals("2")) {
-                task2()
-            } else if (chc.equals("3)") or chc.equals("3")) {
-                task3()
-            } else if (chc.equals("4)") or chc.equals("4")) {
-                task4()
-            } else if (chc.equals("5)") or chc.equals("5")) {
-                task5()
-            } else if (chc.equals("6)") or chc.equals("6")) {
-                task6()
-            } else if (chc.equals("7)") or chc.equals("7")) {
-                task7()
-            } else if (chc.equals("8)") or chc.equals("8")) {
-                task8()
-            } else if (chc.equals("9)") or chc.equals("9")) {
-                task9()
-            } else if (chc.equals("10)") or chc.equals("10")) {
-                task10()
-            } else if (chc.equals("11)") or chc.equals("11")) {
-                task11()
-            } else if (chc.equals("12)") or chc.equals("12")) {
-                task12()
-            } else if (chc.equals("13)") or chc.equals("13")) {
-                task13()
+            when {
+                (chc.equals("1)") or chc.equals("1")) -> task1()
+                (chc.equals("2)") or chc.equals("2")) -> task2()
+                (chc.equals("3)") or chc.equals("3")) -> task3()
+                (chc.equals("4)") or chc.equals("4")) -> task4()
+                (chc.equals("5)") or chc.equals("5")) -> task5()
+                (chc.equals("6)") or chc.equals("6")) -> task6()
+                (chc.equals("7)") or chc.equals("7")) -> task7()
+                (chc.equals("8)") or chc.equals("8")) -> task8()
+                (chc.equals("9)") or chc.equals("9")) -> task9()
+                (chc.equals("10)") or chc.equals("10")) -> task10()
+                (chc.equals("11)") or chc.equals("11")) -> task11()
+                (chc.equals("12)") or chc.equals("12")) -> task12()
+                (chc.equals("13)") or chc.equals("13")) -> task13()
+                else -> print("Не понятно")
+            }
+
+            if(chc.equals("14") or chc.equals("14)")){
+                MainClass().main()
+                break
             }
         }
     }
@@ -228,7 +223,7 @@ class Practice3 {
 
 //
     fun task13(){
-        print("Введите четырехзначное число: ")
+        print("\nВведите четырехзначное число: ")
         val num1 = readLine()!!.toInt()
 
         val dig1 = num1 / 1000 % 10

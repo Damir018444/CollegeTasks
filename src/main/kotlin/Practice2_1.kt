@@ -1,25 +1,33 @@
 class Practice2_1 {
+    fun main(){
 
-    fun main() {
         print("\n-----Операции с числами-----")
 
         while (true) {
-            println("\n\n1) Двузначное число\n2) Трёхзначное число\n3) Деление чисел\n4) Возведение в степень\n5) Найти корень числа\n6) Вычисление логических выражений (skip)")
-            print("\nВаш выбор?: ")
+            println("\n\n1) Двузначное число\n" +
+                    "2) Трёхзначное число\n" +
+                    "3) Деление чисел\n" +
+                    "4) Возведение в степень\n" +
+                    "5) Найти корень числа\n" +
+                    "6) Вычисление логических выражений (skip)\n" +
+                    "7) Выйти из текущей практики")
+            print("\nВаш выбор? (например: 1 или 1) ): ")
             val chc = readlnOrNull()
 
-            if (chc.equals("1)") or chc.equals("1")) {
-                twoNum()
-            } else if (chc.equals("2)") or chc.equals("2")) {
-                threeNum()
-            } else if (chc.equals("3)") or chc.equals("3")) {
-                divide()
-            } else if (chc.equals("4)") or chc.equals("4")) {
-                degree()
-            } else if (chc.equals("5)") or chc.equals("5")) {
-                root()
-            } else if (chc.equals("6)") or chc.equals("6")) {
+            when{
+                (chc.equals("1)") or chc.equals("1")) -> twoNum()
+                (chc.equals("2)") or chc.equals("2")) -> threeNum()
+                (chc.equals("3)") or chc.equals("3")) -> divide()
+                (chc.equals("4)") or chc.equals("4")) -> degree()
+                (chc.equals("5)") or chc.equals("5")) -> root()
+                else -> print("Не понятно")
+            }
+
+            if(chc.equals("6") or chc.equals("6)")){
                 Practice2_2().main()
+                break
+            } else if(chc.equals("7") or chc.equals("7)")){
+                MainClass().main()
                 break
             }
         }
