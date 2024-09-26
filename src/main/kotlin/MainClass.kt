@@ -17,7 +17,7 @@ class MainClass {
                 (chc.equals("4)") or chc.equals("4")) -> Practice4().main()
                 (chc.equals("5)") or chc.equals("5")) -> Practice5().main()
                 (chc.equals("6)") or chc.equals("6")) -> Practice6().main()
-                else -> print("Не понятно")
+                //else -> print("Не понятно")
             }
         }
     }
