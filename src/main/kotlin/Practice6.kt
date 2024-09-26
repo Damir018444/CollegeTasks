@@ -83,7 +83,7 @@ class Practice6 {
     // 1) Создание и вывод элементов
     fun task1() {
         val numbers = intArrayOf(1, 2, 3, 4, 5)
-        //println("Элементы массива: ${numbers.joinToString(", ")}")
+        println("Элементы массива: ${numbers.joinToString(", ")}")
     }
 
     // 2) Сумма элементов массива

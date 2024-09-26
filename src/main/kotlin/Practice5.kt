@@ -81,7 +81,7 @@ class Practice5 {
     //1) Числа от 1 до 10
     fun task1(){
         for(i in 1..10){
-           // print("$i ")
+            print("$i ")
         }
     }
 
