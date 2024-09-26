@@ -7,14 +7,32 @@ class Practice5 {
                     "2) Чётные числа от 1 до 20\n" +
                     "3) Сумма чисел от 1 до N\n" +
                     "4) Факториал числа\n" +
-                    "5) \n" +
-                    "6) Угадай число\n" +
-                    "7) Определение длины строки\n" +
-                    "8) Определить время приготовления по типу пищи\n" +
-                    "9) \"Способы оплаты\"\n" +
-                    "10) \"Группа крови\"\n" +
-                    "11) \"Национальности\"\n" +
-                    "12) \"Коды ошибок\"\n"+
+                    "5) Определить простоту числа\n" +
+                    "6) Таблица умножения\n" +
+                    "7) Фибоначни\n" +
+                    "8) НОД\n" +
+                    "9) \"Обратный порядок\"\n" +
+                    "10) \"Сумма цифр числа\"\n" +
+                    "11) Анаграммы\n" +
+                    "12) Числовая последовательность\n" +
+                    "13) Таблица квадратов\n" +
+                    "14) Генерация случайных чисел\n" +
+                    "15) Проверка палиндрома\n" +
+                    "16) Сигма (сумма квадратов)\n" +
+                    "17) Вывод символов\n" +
+                    "18) Задача на лестницу\n" +
+                    "19) \"Сортировка списка\"\n" +
+                    "20) \"Простые числа в диапазоне\"\n" +
+                    "21) Вывод даты\n" +
+                    "22) Угадай число\n" +
+                    "23) Сложение и умножение\n" +
+                    "24) Транспонирование матрицы\n" +
+                    "25) Кубы чисел\n" +
+                    "26) Сумма четных и нечетных чисел\n" +
+                    "27) Печать числа \"пирамида\"\n" +
+                    "28) Определение порядка\n" +
+                    "29) \"Сумма ряда\"\n" +
+                    "30) \"Конвертация в двоичную систему\"\n" +
                     "31) Выйти из текущей практики")
 
             print("\nВаш выбор? (например: 1 или 1) ): ")
@@ -100,7 +118,7 @@ class Practice5 {
         print(sum)
     }
 
-    //5) Определить знак числа
+    //5) Определить простоту числа
     fun task5(){
         print("\nВведите число: ")
         val num1 = readln().toInt()
@@ -112,367 +130,359 @@ class Practice5 {
         }
     }
 
-    //6) Угадай число
-    fun task6(){
-        print("\nЗагадай мне число от 1 до 10: ")
-        val num1 = readln().toInt()
-
-        when(num1){
-            1 -> print("Это число 1")
-            2 -> print("Это число 2")
-            3 -> print("Это число 3")
-            4 -> print("Это число 4")
-            5 -> print("Это число 5")
-            6 -> print("Это число 6")
-            7 -> print("Это число 7")
-            8 -> print("Это число 8")
-            9 -> print("Это число 9")
-            10 -> print("Это число 10")
-            else -> print("Не понятно")
+    // 6) Таблица умножения
+    fun task6() {
+        for (i in 1..10) {
+            for (j in 1..10) {
+                print("${i * j}\t")
+            }
+            println()
         }
     }
 
-    //7) Определение длины строки
-    fun task7(){
-        print("\nВведите любую строку: ")
-        val num1: String = readln()
-
-        print("Длина строки = "+num1.length)
-    }
-
-    //8) Определить время приготовления по типу пищи
-    fun task8(){
-        print("\n1) Мясо\n2) Рыба\n3) Маршмеллоу\n4) Сосиски\n5) Доширак\n6) Ролтон\nВведите тип пищи по номеру: ")
-        val num1: String = readln()
-
-        when{
-            (num1 == "1") or (num1 == "1)") -> print("20-40 минут")
-            (num1 == "2") or (num1 == "2)") -> print("20 минут")
-            (num1 == "3") or (num1 == "3)") -> print("45 минут")
-            (num1 == "4") or (num1 == "4)") -> print("5-7 минут")
-            (num1 == "5") or (num1 == "5)") -> print("3-4 минуты")
-            (num1 == "6") or (num1 == "6)") -> print("3-5 минут")
-            else -> print("Не понятно")
+    // 7) Фибоначчи
+    fun task7() {
+        print("\nВведите количество чисел Фибоначчи: ")
+        val n = readln().toInt()
+        var a = 0
+        var b = 1
+        print("0 ")
+        for (i in 1 until n) {
+            print("$b ")
+            val next = a + b
+            a = b
+            b = next
         }
     }
 
-    //9) "Способы оплаты"
-    fun task9(){
-        print("\n\"наличные\"\n\"Кредитная карта\"\n\"PayPal\"\nВыберите способ оплаты: ")
-        val num1: String = readln().lowercase()
+    // 8) НОД
+    fun task8() {
+        print("\nВведите первое число: ")
+        val a = readln().toInt()
+        print("Введите второе число: ")
+        val b = readln().toInt()
 
-        when (num1){
-            "наличные" -> print("Вы выбрали способ оплаты: Наличные")
-            "кредитная карта" -> print("Вы выбрали способ оплаты: Кредитная карта")
-            "paypal" -> print("Вы выбрали способ оплаты: PayPal")
-            else -> print("Не понятно")
+        var res = 1
+        for (i in 1..minOf(a, b)) {
+            if (a % i == 0 && b % i == 0) {
+                res = i
+            }
         }
+        println("НОД($a, $b) = $res")
     }
 
-    //10) "Группа крови"
-    fun task10(){
-        print("\n\"O\"\n\"A\"\n\"B\"\n\"AB\"\nВыберите свою группу крови: ")
-        val num1: String = readln().lowercase()
-
-        when (num1){
-            "a" -> print("Вам можно перелить группы O и A")
-            "b" -> print("Вам можно перелить группы O и B")
-            "ab" -> print("Вам можно перелить группы O, A, B и AB")
-            "o" -> print("Вам можно перелить только группу O")
-            else -> print("Не понятно")
-        }
+    // 9) Обратный порядок
+    fun task9() {
+        print("\nВведите строку: ")
+        val input = readln()
+        val reversed = input.reversed()
+        println("Обратный порядок: $reversed")
     }
 
-    //11) "Национальности"
-    fun task11(){
-        print("\n\"Россия\"\n\"США\"\n\"Япония\"\n\"Китай\"\nВыберите свою страну: ")
-        val num1: String = readln().lowercase()
-
-        when (num1){
-            "россия" -> print("Самая крутая страна в мире")
-            "сша" -> print("Загнивающий запад")
-            "япония" -> print("У японцев глаза узкие")
-            "китай" -> print("У китайцев глаза узкие")
-            else -> print("Не понятно")
-        }
-    }
-
-    //12) "Коды ошибок"
-    fun task12(){
-        print("\"100\"\n\"200\"\n\"300\"\n\"400\"\nВведите код ошибки: ")
-        val num1: Int = readln().toInt()
-
-        when (num1){
-            100 -> print("Кто-то перерубил интернет кабель")
-            200 -> print("Сервер упал")
-            300 -> print("Ошибка входа в даркнет")
-            400 -> print("Ошибка при открытии пусковой шахты ядерной ракеты")
-            else -> print("Не понятно")
-        }
-    }
-
-    //12) "Коды ошибок"
-    fun task13(){
-        print("\nВведите номер дня в неделе (от 1 до 7): ")
-        val num1 = readln().toInt()
-
-        when(num1){
-            1 -> print("Это понедельник")
-            2 -> print("Это вторник")
-            3 -> print("Это среда")
-            4 -> print("Это четверг")
-            5 -> print("Это пятница")
-            6 -> print("Это суббота")
-            7 -> print("Это воскресенье")
-            else -> print("Не понятно")
-        }
-    }
-
-    //2) Определить тип треугольника по длинам сторон
-    fun task14(){
-        print("\nВведите длину первой боковой стороны: ")
-        val num1: Int = readln().toInt()
-        print("Введите длину первой боковой стороны: ")
-        val num2: Int = readln().toInt()
-        print("Введите длину основания: ")
-        val num3: Int = readln().toInt()
-
-        when{
-            (num1==num2) and (num1==num3) -> print("Треугольник равносторонний")
-            num1==num2 -> print("Треугольник равнобедренный")
-            else -> print("Треугольник произвольный")
-        }
-    }
-
-    //3) Вывод оценок по числовым значениям
-    fun task15(){
-        print("\nВведите число (от 1 до 5): ")
-        val num1 = readln().toInt()
-
-        when(num1){
-            1 -> print("Кол")
-            2 -> print("Неудовлетворнительно")
-            3 -> print("Плохо")
-            4 -> print("Хорошо")
-            5 -> print("отлично")
-            else -> print("Не понятно")
-        }
-    }
-
-    //4) Определение времени суток
-    fun task16(){
-        print("\nВведите ваше время в часах (от 0 до 23): ")
-        val num1: Int = readln().toInt()
-
-        when{
-            ((num1>=0) and (num1<4)) -> print("Это ночь")
-            ((num1>=4) and (num1<12)) -> print("Это Утро")
-            ((num1>=12) and (num1<17)) -> print("Это День")
-            ((num1>=17) and (num1<24)) -> print("Это Вечер")
-            else -> print("Не понятно")
-        }
-    }
-
-    //5) Определить знак числа
-    fun task17(){
+    // 10) Сумма цифр числа
+    fun task10() {
         print("\nВведите число: ")
-        val num1 = readln().toInt()
+        val num = readln().toInt()
+        var sum = 0
+        var temp = num
 
-        when{
-            num1>0 -> print("Число со знаком +")
-            num1<0 -> print("Число со знаком -")
-            num1==0 -> print("Число равно 0")
-            else -> print("Не понятно")
+        while (temp > 0) {
+            sum += temp % 10
+            temp /= 10
+        }
+        println("Сумма цифр числа $num = $sum")
+    }
+
+    // 11) Анаграммы
+    fun task11() {
+        print("\nВведите первую строку: ")
+        val str1 = readln().lowercase().toCharArray().sorted()
+
+        print("Введите вторую строку: ")
+        val str2 = readln().lowercase().toCharArray().sorted()
+
+        if (str1 == str2) {
+            println("Строки являются анаграммами.")
+        } else {
+            println("Строки не являются анаграммами.")
         }
     }
 
-    //6) Угадай число
-    fun task18(){
-        print("\nЗагадай мне число от 1 до 10: ")
-        val num1 = readln().toInt()
+    // 12) Числовая последовательность
+    fun task12() {
+        print("\nВведите начальное число: ")
+        val start = readln().toInt()
 
-        when(num1){
-            1 -> print("Это число 1")
-            2 -> print("Это число 2")
-            3 -> print("Это число 3")
-            4 -> print("Это число 4")
-            5 -> print("Это число 5")
-            6 -> print("Это число 6")
-            7 -> print("Это число 7")
-            8 -> print("Это число 8")
-            9 -> print("Это число 9")
-            10 -> print("Это число 10")
-            else -> print("Не понятно")
+        print("Введите шаг: ")
+        val step = readln().toInt()
+
+        for (i in start..(start + step * 10) step step) {
+            print("$i ")
         }
     }
 
-    //7) Определение длины строки
-    fun task19(){
-        print("\nВведите любую строку: ")
-        val num1: String = readln()
-
-        print("Длина строки = "+num1.length)
-    }
-
-    //8) Определить время приготовления по типу пищи
-    fun task20(){
-        print("\n1) Мясо\n2) Рыба\n3) Маршмеллоу\n4) Сосиски\n5) Доширак\n6) Ролтон\nВведите тип пищи по номеру: ")
-        val num1: String = readln()
-
-        when{
-            (num1 == "1") or (num1 == "1)") -> print("20-40 минут")
-            (num1 == "2") or (num1 == "2)") -> print("20 минут")
-            (num1 == "3") or (num1 == "3)") -> print("45 минут")
-            (num1 == "4") or (num1 == "4)") -> print("5-7 минут")
-            (num1 == "5") or (num1 == "5)") -> print("3-4 минуты")
-            (num1 == "6") or (num1 == "6)") -> print("3-5 минут")
-            else -> print("Не понятно")
+    // 13) Таблица квадратов
+    fun task13() {
+        println("\nТаблица квадратов чисел от 1 до 20:")
+        for (i in 1..20) {
+            println("$i^2 = ${i * i}")
         }
     }
 
-    //1) Определить день недели по номеру
-    fun task21(){
-        print("\nВведите номер дня в неделе (от 1 до 7): ")
-        val num1 = readln().toInt()
-
-        when(num1){
-            1 -> print("Это понедельник")
-            2 -> print("Это вторник")
-            3 -> print("Это среда")
-            4 -> print("Это четверг")
-            5 -> print("Это пятница")
-            6 -> print("Это суббота")
-            7 -> print("Это воскресенье")
-            else -> print("Не понятно")
+    // 14) Генерация случайных чисел
+    fun task14() {
+        println("\nСлучайные числа:")
+        repeat(10) {
+            println((1..100).random())
         }
     }
 
-    //2) Определить тип треугольника по длинам сторон
-    fun task22(){
-        print("\nВведите длину первой боковой стороны: ")
-        val num1: Int = readln().toInt()
-        print("Введите длину первой боковой стороны: ")
-        val num2: Int = readln().toInt()
-        print("Введите длину основания: ")
-        val num3: Int = readln().toInt()
+    // 15) Проверка палиндрома
+    fun task15() {
+        print("\nВведите строку: ")
+        val input = readln()
 
-        when{
-            (num1==num2) and (num1==num3) -> print("Треугольник равносторонний")
-            num1==num2 -> print("Треугольник равнобедренный")
-            else -> print("Треугольник произвольный")
+        if (input == input.reversed()) {
+            println("Строка является палиндромом.")
+        } else {
+            println("Строка не является палиндромом.")
         }
     }
 
-    //3) Вывод оценок по числовым значениям
-    fun task23(){
-        print("\nВведите число (от 1 до 5): ")
-        val num1 = readln().toInt()
+    // 16) Сигма (сумма квадратов)
+    fun task16() {
+        print("\nВведите число N: ")
+        val n = readln().toInt()
 
-        when(num1){
-            1 -> print("Кол")
-            2 -> print("Неудовлетворнительно")
-            3 -> print("Плохо")
-            4 -> print("Хорошо")
-            5 -> print("отлично")
-            else -> print("Не понятно")
+        var sumOfSquares = 0
+        for (i in 1..n) {
+            sumOfSquares += i * i
+        }
+
+        println("Сумма квадратов от 1 до $n = $sumOfSquares")
+    }
+
+    // 17) Вывод символов
+    fun task17() {
+        print("\nВведите строку: ")
+        val input = readln()
+
+        for (char in input) {
+            println(char)
         }
     }
 
-    //4) Определение времени суток
-    fun task24(){
-        print("\nВведите ваше время в часах (от 0 до 23): ")
-        val num1: Int = readln().toInt()
+    // 18) Задача на лестницу
+    fun task18() {
+        print("\nВведите высоту лестницы N: ")
+        val n = readln().toInt()
 
-        when{
-            ((num1>=0) and (num1<4)) -> print("Это ночь")
-            ((num1>=4) and (num1<12)) -> print("Это Утро")
-            ((num1>=12) and (num1<17)) -> print("Это День")
-            ((num1>=17) and (num1<24)) -> print("Это Вечер")
-            else -> print("Не понятно")
+        for (i in 1..n) {
+            repeat(i) { print("#") }
+            println()
         }
     }
 
-    //5) Определить знак числа
-    fun task25(){
-        print("\nВведите число: ")
-        val num1 = readln().toInt()
+    // 19) Сортировка списка
+    fun task19() {
+        // Пример массива двухзначных чисел
+        val numbers = intArrayOf(34, 12, 56, 23, 45, 67, 89, 11)
+        for(i in numbers.indices){
+            for(j in i+1 until numbers.size){
+                if(numbers[i] > numbers[j]){
+                    // Меняем местами
+                    val temp = numbers[i]
+                    numbers[i] = numbers[j]
+                    numbers[j] = temp
+                }
+            }
+        }
 
-        when{
-            num1>0 -> print("Число со знаком +")
-            num1<0 -> print("Число со знаком -")
-            num1==0 -> print("Число равно 0")
-            else -> print("Не понятно")
+        println("Отсортированный список: ${numbers.joinToString(", ")}")
+    }
+
+    // 20) Простые числа в диапазоне
+    fun task20() {
+        print("\nВведите начальное число: ")
+        val start = readln().toInt()
+        print("Введите конечное число: ")
+        val end = readln().toInt()
+
+        println("Простые числа в диапазоне от $start до $end:")
+        for (num in start..end) {
+            if (num > 1 && (2 until num).none { num % it == 0 }) {
+                print("$num ")
+            }
         }
     }
 
-    //6) Угадай число
-    fun task26(){
-        print("\nЗагадай мне число от 1 до 10: ")
-        val num1 = readln().toInt()
+    // 21) Вывод даты
+    fun task21() {
+        print("\nВведите год: ")
+        val year = readln().toInt()
+        print("Введите месяц: ")
+        val month = readln().toInt()
 
-        when(num1){
-            1 -> print("Это число 1")
-            2 -> print("Это число 2")
-            3 -> print("Это число 3")
-            4 -> print("Это число 4")
-            5 -> print("Это число 5")
-            6 -> print("Это число 6")
-            7 -> print("Это число 7")
-            8 -> print("Это число 8")
-            9 -> print("Это число 9")
-            10 -> print("Это число 10")
-            else -> print("Не понятно")
+        val daysInMonth = when (month) {
+            1, 3, 5, 7, 8, 10, 12 -> 31
+            4, 6, 9, 11 -> 30
+            2 -> if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) 29 else 28
+            else -> {
+                println("Некорректный месяц.")
+                return
+            }
+        }
+
+        println("Даты в месяце $month/$year:")
+        for (day in 1..daysInMonth) {
+            println("$day/$month/$year")
         }
     }
 
-    //7) Определение длины строки
-    fun task27(){
-        print("\nВведите любую строку: ")
-        val num1: String = readln()
+    // 22) Угадай число
+    fun task22() {
+        val randomNumber = (1..100).random()
+        var guessed = false
 
-        print("Длина строки = "+num1.length)
-    }
+        println("\nУгадайте число от 1 до 100:")
 
-    //8) Определить время приготовления по типу пищи
-    fun task28(){
-        print("\n1) Мясо\n2) Рыба\n3) Маршмеллоу\n4) Сосиски\n5) Доширак\n6) Ролтон\nВведите тип пищи по номеру: ")
-        val num1: String = readln()
+        while (!guessed) {
+            print("Введите ваше предположение: ")
+            val guess = readln().toInt()
 
-        when{
-            (num1 == "1") or (num1 == "1)") -> print("20-40 минут")
-            (num1 == "2") or (num1 == "2)") -> print("20 минут")
-            (num1 == "3") or (num1 == "3)") -> print("45 минут")
-            (num1 == "4") or (num1 == "4)") -> print("5-7 минут")
-            (num1 == "5") or (num1 == "5)") -> print("3-4 минуты")
-            (num1 == "6") or (num1 == "6)") -> print("3-5 минут")
-            else -> print("Не понятно")
+            when {
+                guess < randomNumber -> println("Слишком маленькое число!")
+                guess > randomNumber -> println("Слишком большое число!")
+                else -> {
+                    println("Вы угадали число $randomNumber!")
+                    guessed = true
+                }
+            }
         }
     }
 
-    //9) "Способы оплаты"
-    fun task29(){
-        print("\n\"наличные\"\n\"Кредитная карта\"\n\"PayPal\"\nВыберите способ оплаты: ")
-        val num1: String = readln().lowercase()
+    // 23) Сложение и умножение
+    fun task23() {
+        while (true) {
+            print("\nВведите первое число (или 'стоп' для выхода): ")
+            val input1 = readln()
+            if (input1.lowercase() == "стоп") break
 
-        when (num1){
-            "наличные" -> print("Вы выбрали способ оплаты: Наличные")
-            "кредитная карта" -> print("Вы выбрали способ оплаты: Кредитная карта")
-            "paypal" -> print("Вы выбрали способ оплаты: PayPal")
-            else -> print("Не понятно")
+            print("Введите второе число: ")
+            val input2 = readln()
+            if (input2.lowercase() == "стоп") break
+
+            val sum = input1.toInt() + input2.toInt()
+            val product = input1.toInt() * input2.toInt()
+
+            println("Сумма: $sum")
+            println("Произведение: $product")
         }
     }
 
-    //10) "Группа крови"
-    fun task30(){
-        print("\n\"O\"\n\"A\"\n\"B\"\n\"AB\"\nВыберите свою группу крови: ")
-        val num1: String = readln().lowercase()
+    // 24) Транспонирование матрицы
+    fun task24() {
+        print("\nВведите количество строк матрицы: ")
+        val rows = readln().toInt()
+        print("Введите количество столбцов матрицы: ")
+        val cols = readln().toInt()
 
-        when (num1){
-            "a" -> print("Вам можно перелить группы O и A")
-            "b" -> print("Вам можно перелить группы O и B")
-            "ab" -> print("Вам можно перелить группы O, A, B и AB")
-            "o" -> print("Вам можно перелить только группу O")
-            else -> print("Не понятно")
+        val matrix = Array(rows) { IntArray(cols) }
+
+        for (i in 0 until rows) {
+            for (j in 0 until cols) {
+                print("Введите элемент [$i][$j]: ")
+                matrix[i][j] = readln().toInt()
+            }
         }
+
+        val transposedMatrix = Array(cols) { IntArray(rows) }
+
+        for (i in 0 until rows) {
+            for (j in 0 until cols) {
+                transposedMatrix[j][i] = matrix[i][j]
+            }
+        }
+
+        println("Транспонированная матрица:")
+        for (i in transposedMatrix.indices) {
+            for (j in transposedMatrix[i].indices) {
+                print("${transposedMatrix[i][j]} ")
+            }
+            println()
+        }
+    }
+
+    // 25) Кубы чисел
+    fun task25() {
+        println("\nКубы чисел от 1 до 10:")
+        for (i in 1..10) {
+            println("$i^3 = ${i * i * i}")
+        }
+    }
+
+    // 26) Сумма четных и нечетных чисел
+    fun task26() {
+        print("\nВведите число N: ")
+        val n = readln().toInt()
+
+        var evenSum = 0
+        var oddSum = 0
+
+        for (i in 1..n) {
+            if (i % 2 == 0) evenSum += i else oddSum += i
+        }
+
+        println("Сумма четных чисел от 1 до $n = $evenSum")
+        println("Сумма нечетных чисел от 1 до $n = $oddSum")
+    }
+
+    // 27) Печать числа "пирамида"
+    fun task27() {
+        print("\nВведите высоту пирамиды N: ")
+        val n = readln().toInt()
+
+        for (i in 1..n) {
+            repeat(n - i) { print(" ") }
+            repeat(i * 2 - 1) { print("$i") }
+            println()
+        }
+    }
+
+    // 28) Определение порядка
+    fun task28() {
+        print("\nВведите количество чисел N: ")
+        val n = readln().toInt()
+        val numbers = IntArray(n)
+
+        for (i in numbers.indices) {
+            print("Введите число ${i + 1}: ")
+            numbers[i] = readln().toInt()
+        }
+
+        numbers.sort()
+        println("Числа в порядке возрастания: ${numbers.joinToString(", ")}")
+    }
+
+    // 29) Сумма ряда
+    fun task29() {
+        print("\nВведите число N: ")
+        val n = readln().toInt()
+
+        var sumSeries = 0.0
+
+        for (i in 1..n) {
+            sumSeries += 1.0 / i
+        }
+        println("Сумма ряда от 1 до $n = $sumSeries")
+    }
+
+    // 30) Конвертация в двоичную систему
+    fun task30() {
+        print("\nВведите целое число для конвертации в двоичную систему: ")
+        val number = readln().toInt()
+
+        val binaryString = number.toString(2)
+        println("Двоичное представление числа $number: $binaryString")
     }
 }

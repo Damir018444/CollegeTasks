@@ -1,5 +1,4 @@
 class Practice3 {
-
     fun main() {
         print("\n-----Условный оператор-----")
 
