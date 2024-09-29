@@ -39,7 +39,6 @@ class Practice3 {
             }
 
             if(chc.equals("14") or chc.equals("14)")){
-                MainClass().main()
                 break
             }
         }

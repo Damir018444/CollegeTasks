@@ -1,3 +1,5 @@
+import com.sun.tools.javac.Main
+
 class Practice5 {
     fun main() {
         print("\n-----Циклы-----")
@@ -69,9 +71,7 @@ class Practice5 {
                 (chc.equals("28)") or chc.equals("28")) -> task28()
                 (chc.equals("29)") or chc.equals("29")) -> task29()
                 (chc.equals("30)") or chc.equals("30")) -> task30()
-                (chc.equals("31)") or chc.equals("31")) -> {
-                    MainClass().main()
-                    break}
+                (chc.equals("31)") or chc.equals("31")) -> break
                 else -> print("Не понятно")
             }
         }

@@ -27,7 +27,6 @@ class Practice2_1 {
                 Practice2_2().main()
                 break
             } else if(chc.equals("7") or chc.equals("7)")){
-                MainClass().main()
                 break
             }
         }
