@@ -11,7 +11,7 @@ class Practice2_1 {
                     "5) Найти корень числа\n" +
                     "6) Вычисление логических выражений (skip)\n" +
                     "7) Выйти из текущей практики")
-            print("\nВаш выбор? (например: 1 или 1) ): ")
+            print("\nВаш выбор?: ")
             val chc = readlnOrNull()
 
             when{
@@ -20,14 +20,9 @@ class Practice2_1 {
                 (chc.equals("3)") or chc.equals("3")) -> divide()
                 (chc.equals("4)") or chc.equals("4")) -> degree()
                 (chc.equals("5)") or chc.equals("5")) -> root()
+                (chc.equals("6)") or chc.equals("6")) -> { Practice2_2().main(); break }
+                (chc.equals("7)") or chc.equals("7")) -> break
                 else -> print("Не понятно")
-            }
-
-            if(chc.equals("6") or chc.equals("6)")){
-                Practice2_2().main()
-                break
-            } else if(chc.equals("7") or chc.equals("7)")){
-                break
             }
         }
     }

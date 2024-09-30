@@ -9,7 +9,7 @@ class Practice7 {
                     "4) Карточная игра\n" +
                     "5) Выйти из текущей практики")
 
-            print("\nВаш выбор? (например: 1 или 1) ): ")
+            print("\nВаш выбор?: ")
             val chc = readlnOrNull()
 
             when{
@@ -43,7 +43,7 @@ class Practice7 {
             (ch == "-") or (ch == "2") or ch.equals("Вычитание", ignoreCase = true) -> print("Результат вычитания $num2 и $num1: ${num1 - num2}")
             (ch == "*") or (ch == "3") or ch.equals("Умножение", ignoreCase = true) -> print("Результат умножения $num1 на $num2: ${num1 * num2}")
             (ch == "/") or (ch == "4") or ch.equals("Деление", ignoreCase = true) -> print("Результат деления $num1 на $num2: ${num1 / num2}")
-            else -> print("Нормально пишите ( например: + или Сложение )")
+            else -> print("Нормально пишите (например: \"+\" или \"Сложение\")")
         }
     }
 
@@ -90,7 +90,7 @@ class Practice7 {
                 "\n1) Настройки\n" +
                 "2) Начать игру\n" +
                 "3) Выйти\n" +
-                "Выберите действие (например: 1 или 1) ): "
+                "Выберите действие: "
             )
             val chc = readlnOrNull()
 
@@ -113,14 +113,14 @@ class Practice7 {
                     var i = 0
 
                     print("\nВы смотрите свою первую карту: ")
-                    Thread.sleep(1000)
+                    Thread.sleep(1500)
                     print(your_cards.first())
                     Thread.sleep(2500)
                     while(true){
 
                         if(!bankirPlays) {
                             your_points += when {
-                                your_cards.last()=="Туз" -> { cards.minus("Туз"); if (rules[3] == 11) { rules[3] } else { if (your_points + 11 <= 21) { rules[3] } else { 1 } } }
+                                your_cards.last()=="Туз" -> { cards.minus("Туз"); if (rules[3] == 11) { rules[3] } else { if (your_points + 11 <= 21) { 11 } else { 1 } } }
                                 your_cards.last()=="Король" -> { cards.minus("Король"); rules[2] }
                                 your_cards.last()=="Дама" -> { cards.minus("Дама"); rules[1] }
                                 your_cards.last()=="Валет" -> { cards.minus("Валет"); rules[0] }
@@ -141,7 +141,7 @@ class Practice7 {
                                     "0) Играть в тёмную\n" +
                                     "1) Взять ещё карту\n" +
                                     "2) Вскрыть карты\n" +
-                                    "Выберите действие (например: 1 или 1) ): "
+                                    "Выберите действие: "
                                 )
                             } else {
                                 if(shadowPlay) {
@@ -159,7 +159,7 @@ class Practice7 {
                                         //"Ваше количество очков: $your_points\n" +
                                         "1) Взять ещё карту\n" +
                                         "2) Вскрыть карты\n" +
-                                        "Выберите действие (например: 1 или 1) ): "
+                                        "Выберите действие: "
                                     )
                                 }
                             }
@@ -168,22 +168,22 @@ class Practice7 {
                                 val move = readlnOrNull()
                                 when {
                                     (move.equals("0)") or move.equals("0")) -> {
-                                        if((your_cards.first() == "Карта \"6\"") and (your_points==6)){ your_cards.addAll(cards.shuffled().take(1)); Thread.sleep(500); println("Теперь вы играете в тёмную (Карта \"6\" = \"Туз\")");your_points = (your_points-6)+11;shadowPlay = true;break
-                                        } else {print("Ваше первая карта не с наминалом 6!\nВыберите действие (например: 1 или 1) ): "); continue}
+                                        if((your_cards.first() == "Карта \"6\"") and (your_points==6)){ your_cards.addAll(cards.shuffled().take(1)); Thread.sleep(500); println("Теперь вы играете в тёмную\n(Карта \"6\" = \"Туз\")");your_points = (your_points-6)+11;shadowPlay = true;Thread.sleep(500);break
+                                        } else {print("Ваше первая карта не с наминалом 6!\nВыберите действие: "); continue}
                                     }
-                                    (move.equals("1)") or move.equals("1")) -> { your_cards.addAll(cards.shuffled().take(1)); Thread.sleep(500); print("\nВы тяните карту: "); Thread.sleep(1000); print(your_cards.last()); Thread.sleep(500); break }
+                                    (move.equals("1)") or move.equals("1")) -> { your_cards.addAll(cards.shuffled().take(1)); Thread.sleep(500); print("\nВы тяните карту: "); Thread.sleep(1500); print(your_cards.last()); Thread.sleep(500); break }
                                     (move.equals("2)") or move.equals("2")) -> {
                                         println("\n-*Играет банкир*-")
                                         Thread.sleep(1500)
                                         print("\nБанкир вскрывет свою первую карту: ")
                                         Thread.sleep(1000)
                                         print(bankir_cards[0])
-                                        Thread.sleep(1500)
+                                        Thread.sleep(2000)
                                         bankirPlays = true
                                         break
                                     }
                                     (move.equals("3)") or move.equals("3")) -> { Practice7().task4(); break }
-                                    else -> print("Выберите действие (например: 1 или 1) ): ")
+                                    else -> print("Выберите действие: ")
                                 }
                             }
                             i += 1
@@ -191,7 +191,7 @@ class Practice7 {
                         } else {
 
                             bankir_points += when {
-                                bankir_cards.last()=="Туз" -> { cards.minus("Туз"); if (rules[3] == 11) { rules[3] } else { if (your_points + 11 <= 21) { rules[3] } else { 1 } } }
+                                bankir_cards.last()=="Туз" -> { cards.minus("Туз"); if (rules[3] == 11) { rules[3] } else { if (bankir_points + 11 <= 21) { 11 } else { 1 } } }
                                 bankir_cards.last()=="Король" -> { cards.minus("Король"); rules[2] }
                                 bankir_cards.last()=="Дама" -> { cards.minus("Дама"); rules[1] }
                                 bankir_cards.last()=="Валет" -> { cards.minus("Валет"); rules[0] }
@@ -205,7 +205,7 @@ class Practice7 {
                             if (bankir_points<=16) {
                                 bankir_cards.addAll(cards.shuffled().take(1))
                                 print("\nБанкир тянет следующую карту: ")
-                                Thread.sleep(1000)
+                                Thread.sleep(1500)
                                 print(bankir_cards.last())
                                 Thread.sleep(2000)
                             } else {
@@ -216,15 +216,15 @@ class Practice7 {
 
                                 if(shadowPlay){
                                     print("\nВы вскрываете свою вторую карту: ")
-                                    Thread.sleep(1000)
+                                    Thread.sleep(1500)
                                     print(your_cards.last())
                                     Thread.sleep(2500)
                                 }
                                 println("\nИтого ваш набор: ${your_cards.joinToString(", ")}")
-                                Thread.sleep(2000)
-
+                                Thread.sleep(1500)
                                 println("\nПодсчёт очков...")
-                                Thread.sleep(2000)
+                                Thread.sleep(2500)
+                                print("\n")
                                 if(bankir_points==21){ println(
                                         "Вы проиграли!\n" +
                                         "Банкир набрал ровно 21-о очко!\n") }
@@ -232,21 +232,28 @@ class Practice7 {
                                         "Вы выиграли!\n" +
                                         "Банкир набрал больше 21-о очка!\n") }
                                 else {
-                                    if (bankir_points >= your_points) { println(
+                                    if (bankir_points > your_points) {
+                                        println(
                                         "Вы проиграли!\n" +
                                         "У вас меньше очков чем у банкира\n")
+                                    } else if (bankir_points == your_points) { println(
+                                        "Вы проиграли!\n" +
+                                        "У вас столько же очков, сколько и у банкира\n")
                                     } else { println(
                                         "Вы выиграли!\n" +
                                         "У банкира меньше очков чем у вас\n")
                                     }
                                 }
                                 println("Итого ваше количество очков: $your_points\n" +
-                                        "Итого количество очков банкира: $bankir_points\n" +
-                                        "Сыграть ещё раз? (Y,N):")
-                                val rep = readln()
-                                when{
-                                    (rep == "Y") or (rep == "y") -> { Practice7().task4(); break }
-                                    (rep == "N") or (rep == "n") -> { Practice7().main(); break }
+                                        "Итого количество очков банкира: $bankir_points\n")
+
+                                while(true) {
+                                    print("\nСыграть ещё раз? (Y,N): ")
+                                    val rep = readln()
+                                    when {
+                                        (rep == "Y") or (rep == "y") -> { Practice7().task4(); break }
+                                        (rep == "N") or (rep == "n") -> { Practice7().main(); break }
+                                    }
                                 }
                             }
                         }
@@ -254,39 +261,27 @@ class Practice7 {
                     if (your_points==21) {
                         Thread.sleep(500)
                         println("\n\nВы выиграли автоматически!\nУ вас ровно 21 очко!\nИтого ваше количество очков: $your_points\n" +
-                                "Итого ваш набор карт: ${your_cards.joinToString(", ")}\nСыграть ещё раз? (Y,N): ")
-                        val rep = readln()
-                        when{
-                            (rep == "Y") or (rep == "y") -> continue
-                            (rep == "N") or (rep == "n") -> { Practice7().main(); break }
-                        }
+                                "Итого ваш набор карт: ${your_cards.joinToString(", ")}")
                     } else {
                         if((rules[4] == 1) and ((your_cards.count { it == "Туз" })>1)) {
                             Thread.sleep(500)
                             println(
                                 "\n\nВы выиграли автоматически!\nУ вас \"Золотое очко\"!\nИтого ваше количество очков: $your_points\n" +
-                                        "Итого ваш набор карт: ${your_cards.joinToString(", ")}\nСыграть ещё раз? (Y,N): "
-                            )
-                            val rep = readln()
-                            when {
-                                (rep == "Y") or (rep == "y") -> continue
-                                (rep == "N") or (rep == "n") -> {
-                                    Practice7().main(); break
-                                }
-                            }
+                                "Итого ваш набор карт: ${your_cards.joinToString(", ")}")
                         } else {
                             Thread.sleep(500)
                             println(
                                 "\n\nВы проиграли автоматически!\nУ вас перебор по очкам\nИтого ваше количество очков: $your_points\n" +
-                                        "Итого ваш набор карт: ${your_cards.joinToString(", ")}\nСыграть ещё раз? (Y,N): "
-                            )
-                            val rep = readln()
-                            when {
-                                (rep == "Y") or (rep == "y") -> continue
-                                (rep == "N") or (rep == "n") -> {
-                                    Practice7().main(); break
-                                }
-                            }
+                                "Итого ваш набор карт: ${your_cards.joinToString(", ")}")
+                        }
+                    }
+
+                    while(true) {
+                        print("\nСыграть ещё раз? (Y,N): ")
+                        val rep = readln()
+                        when {
+                            (rep == "Y") or (rep == "y") -> { Practice7().task4(); break }
+                            (rep == "N") or (rep == "n") -> { Practice7().main(); break }
                         }
                     }
                 }
@@ -301,35 +296,39 @@ class Practice7 {
 
         var num1: String
         var num2: String
+        var num3: String
+        var num4: String
         var gpoint: String
-        num1 = if(rules[0] == 2){ "1)" } else { "2)" }
-        num2 = if(rules[3] == 11){ "1)" } else { "2)" }
+        if(rules[0] == 2){ num1 = "- *Включено*"; num2 = "" } else { num2 = "- *Включено*"; num1 = "" }
+        if(rules[3] == 11){ num3 = "- *Включено*"; num4 = "" } else { num4 = "- *Включено*"; num3 = "" }
         gpoint = if(rules[4] == 1){ "Учитывается" } else { "Не учитывается" }
         while (true) {
             print(
-                "\n-------------------------------------------------------" +
+                /*"\n-------------------------------------------------------" +
                 "\nНастройка 1: \"$num1\" ; Настройка 2: \"$num2\"\n" +
-                "-------------------------------------------------------\n" +
-                "Настройка 1\n" +
-                "1) Вылет = 2, Король = 4 и Дама = 3 очка\n" +
-                "2) Вылет, Король и Дама равны 10 очков\n\n" +
+                "-------------------------------------------------------\n" +*/
+                "\nНастройка 1\n" +
+                "1) Вылет = 2, Король = 4 и Дама = 3 очка $num1\n" +
+                "2) Вылет, Король и Дама равны 10 очков $num2\n\n" +
 
                 "Настройка 2\n" +
-                "3) Туз = только 11 очков\n" +
-                "4) Туз = 11 очкам, но = 1 очку в случае перебора\n\n" +
+                "3) Туз = только 11 очков $num3\n" +
+                "4) Туз = 11 очкам, но = 1 очку в случае перебора $num4\n\n" +
 
                 "Настройка 3\n" +
-                "5) \"Золотое очко\" - $gpoint\n" +
+                "5) \"Золотое очко\" - $gpoint\n\n" +
 
-                "\nВыберите действие (например: 1 или 1) ): "
+                "6) Сохранить и выйти из настроек\n" +
+
+                "\nВыберите действие: "
             )
             val chc = readlnOrNull()
 
             when {
-                (chc.equals("1)") or chc.equals("1")) -> { rules[0] = 2; rules[1] = 3; rules[2] = 4; num1 = "1)" }
-                (chc.equals("2)") or chc.equals("2")) -> { rules[0] = 10; rules[1] = 10; rules[2] = 10; num1 = "2)" }
-                (chc.equals("3)") or chc.equals("3")) -> { rules[3] = 11; num2 = "1)" }
-                (chc.equals("4)") or chc.equals("4")) -> { rules[3] = 1; num2 = "2)" }
+                (chc.equals("1)") or chc.equals("1")) -> { rules[0] = 2; rules[1] = 3; rules[2] = 4; num1 = "- *Включено*"; num2 = "" }
+                (chc.equals("2)") or chc.equals("2")) -> { rules[0] = 10; rules[1] = 10; rules[2] = 10; num2 = "- *Включено*"; num1 = "" }
+                (chc.equals("3)") or chc.equals("3")) -> { rules[3] = 11; num3 = "- *Включено*"; num4 = "" }
+                (chc.equals("4)") or chc.equals("4")) -> { rules[3] = 1; num4 = "- *Включено*"; num3 = "" }
                 (chc.equals("5)") or chc.equals("5")) -> { if(rules[4] == 1){ rules[4] = 0; gpoint = "Не учитывается" } else { rules[4] = 1; gpoint = "Учитывается" } }
                 (chc.equals("6)") or chc.equals("6")) -> return rules
                 else -> print("Не понятно")

@@ -18,7 +18,7 @@ class Practice3 {
                     "13) Работа с цифрами в четырёхзначном числе\n" +
                     "14) Выйти из текущей практики")
 
-            print("\nВаш выбор? (например: 1 или 1) ): ")
+            print("\nВаш выбор?: ")
             val chc = readlnOrNull()
 
             when {
@@ -35,11 +35,8 @@ class Practice3 {
                 (chc.equals("11)") or chc.equals("11")) -> task11()
                 (chc.equals("12)") or chc.equals("12")) -> task12()
                 (chc.equals("13)") or chc.equals("13")) -> task13()
+                (chc.equals("14)") or chc.equals("14")) -> break
                 else -> print("Не понятно")
-            }
-
-            if(chc.equals("14") or chc.equals("14)")){
-                break
             }
         }
     }

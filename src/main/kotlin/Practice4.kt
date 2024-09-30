@@ -17,7 +17,7 @@ class Practice4 {
                     "12) \"Коды ошибок\"\n"+
                     "13) Выйти из текущей практики")
 
-            print("\nВаш выбор? (например: 1 или 1) ): ")
+            print("\nВаш выбор?: ")
             val chc = readlnOrNull()
 
             when{
@@ -33,11 +33,8 @@ class Practice4 {
                 (chc.equals("10)") or chc.equals("10")) -> task10()
                 (chc.equals("11)") or chc.equals("11")) -> task11()
                 (chc.equals("12)") or chc.equals("12")) -> task12()
+                (chc.equals("13)") or chc.equals("13")) -> break
                 else -> print("Не понятно")
-            }
-
-            if(chc.equals("13") or chc.equals("13)")){
-                break
             }
         }
     }
