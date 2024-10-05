@@ -1,12 +1,13 @@
 fun main() {
     while (true) {
 
-        Practice7().task4()
+        Practice9().main()
 
         print("\n\n-----Выбор Практики-----\n")
 
         print("\n1) Первая практика\n2) Вторая практика\n3) Третья практика\n4) Четвёртая практика\n" +
-                "5) Пятая практика\n6) Шестая практика\n7) Седьмая практика\nВыберите практику: ")
+                "5) Пятая практика\n6) Шестая практика\n7) Седьмая практика\n8) Восьмая практика\n" +
+                "9) Девятая практика\nВыберите практику: ")
 
         val chc: String? = readlnOrNull()
         when {
@@ -17,6 +18,8 @@ fun main() {
             (chc.equals("5)") or chc.equals("5")) -> Practice5().main()
             (chc.equals("6)") or chc.equals("6")) -> Practice6().main()
             (chc.equals("7)") or chc.equals("7")) -> Practice7().main()
+            (chc.equals("8)") or chc.equals("8")) -> Practice8().main()
+            (chc.equals("9)") or chc.equals("9")) -> Practice9().main()
             else -> print("Не понятно")
         }
     }
