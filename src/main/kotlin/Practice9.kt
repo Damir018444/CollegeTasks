@@ -1,11 +1,12 @@
 import java.sql.Struct
+import kotlin.math.sqrt
 
 class Practice9 {
     fun main() {
-        print("\n-----Творческие задачи-----")
+        print("\n-----Творческие задачи-----\n")
 
         while (true) {
-            print("\n\nВведите номер задания (от 1 до 10)\nили напишите \"0\" для выхода с практической: ")
+            print("\nВведите номер задания (от 1 до 10)\nили напишите \"0\" для выхода с практической: ")
             val chc = readlnOrNull()
 
             when(chc) {
@@ -13,7 +14,15 @@ class Practice9 {
                 "2" -> task2("Hello World")
                 "3" -> print("\n450 рублей это ${task3(450)} долларов")
                 "4" -> print("\n${task4()}")
-                "5" -> task5()
+                "5" -> {
+                    print("\nВведите число N: ")
+                    val n = readln().toInt()
+                    if(n>=2) {
+                        var i = 1
+                        val list = List(n) { i++ }
+                        print("простые числа: ${task5(list).joinToString(", ")}")
+                    } else { print("Простых чисел нет") }
+                }
                 "6" -> task6()
                 "7" -> task7()
                 "8" -> task8()
@@ -79,32 +88,81 @@ class Practice9 {
     }
 
     // 5) Нахождение простых чисел
-    fun task5() {
+    fun task5(list: List<Int>): List<Int> {
+        val resList = mutableListOf<Int>()
 
+        for (i in list) {
+            if (i < 2) continue
+            var isPrime = true
+            for (j in 2..sqrt(i.toDouble()).toInt()) {
+                if (i % j == 0) {
+                    isPrime = false
+                    break
+                }
+            }
+            if (isPrime) {
+                resList.add(i)
+            }
+        }
+        return resList
     }
 
-    // 6) Попеды, ничьи и поражения
+    // 6) Сортировка строк
     fun task6() {
-
+        println("\nВведите строки через запятую:")
+        val input = readln().split(",").map { it.trim() }.sorted()
+        println("Отсортированные строки: ${input.joinToString(", ")}")
     }
 
-    // 7) Попеды, ничьи и поражения
+    // 7) Изменение регистра
     fun task7() {
+        println("\nВведите строку:")
+        val input = readln()
+        val toggledCase = input.map {
+            if (it.isUpperCase()) it.lowercaseChar() else it.uppercaseChar()
+        }.joinToString("")
 
+        println("Измененная строка: $toggledCase")
     }
 
-    // 8) Найти палиндром слова
+    // 8) Игра "Угадай число"
     fun task8() {
+        val randomNum = (1..100).random()
+        var num: Int?
 
+        println("Угадайте число от 1 до 100:")
+
+        do {
+            num = readln().toIntOrNull()
+            when {
+                num == null -> println("Введите корректное число.")
+                num < randomNum -> println("Слишком маленькое число!")
+                num > randomNum -> println("Слишком большое число!")
+                else -> println("Вы угадали число!")
+            }
+        } while (num != randomNum)
     }
 
-    // 9) Попеды, ничьи и поражения
+    // 9) Генератор паролей
     fun task9() {
+        println("\nВведите длину пароля:")
+        val length = readln().toIntOrNull() ?: return println("Некорректная длина.")
 
+        val chars = ('a'..'z') + ('A'..'Z') + ('0'..'9')
+        val spec_s = "!@#$%^&*()-_=+[]{}|;:',.<>?/`~"
+
+        val password = (1..length).map { chars.random() + spec_s.indices.random() }.joinToString("")
+
+        println("Сгенерированный пароль: $password")
     }
 
-    // 10) Попеды, ничьи и поражения
+    // 10) Самое длинное слово в строке
     fun task10() {
+        println("\nВведите строку: ")
+        val input = readln().split(Regex("\\W+"))
 
+        val longestWord = input.maxByOrNull { it.length } ?: ""
+
+        println("Самое длинное слово: $longestWord")
     }
 }
